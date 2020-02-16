@@ -1,5 +1,7 @@
 # Airflow helm chart (KubernetesExecutor)
 
+Forked from: https://github.com/BrechtDeVlieger/airflow-kube-helm
+
 Run Airflow on Kubernetes using the KubernetesExecutor. 
 With this executor, Airflow creates a new worker pod for each task. 
 Workers pod are removed as soon as their task is completed. 
@@ -63,6 +65,20 @@ An NFS volume allows ReadWriteMany access to the volumes, which is sufficient to
   
   * dags-volume-readwritemany: Similar to Minikube example, but uses NFS volume for both logs and dags.
   
+## Installing on Docker for Desktop / Minikube
+
+
+```bash
+git clone https://github.com/chattarajoy/airflow-kube-helm
+cd airflow-kube-helm
+
+# build docker image
+./examples/minikube/docker/build-docker.sh
+
+# install chart
+cd airflow
+helm install --namespace airflow --name airflow .
+```
 
 ## Additional reading
 
