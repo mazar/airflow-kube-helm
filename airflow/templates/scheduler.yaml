@@ -9,7 +9,6 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: 1
-  serviceAccountName: {{ template "airflow.fullname" . }}-cluster-access
   strategy:
     type: RollingUpdate
     rollingUpdate:
