@@ -6,11 +6,6 @@
 ##
 ## common settings and setting for the webserver
 airflow:
-  config:
-    AIRFLOW__CORE__SQL_ALCHEMY_CONN: "postgresql+psycopg2://postgres:airflow@airflow-postgresql:5432/airflow"
-    AIRFLOW__CORE__LOAD_EXAMPLES: "True"
-    POSTGRES_HOST: "airflow-postgresql"
-    POSTGRES_PORT: "5432"
   ##
   ## You will need to define your fernet key:
   ## Generate fernet_key with:
