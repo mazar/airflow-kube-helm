@@ -159,7 +159,6 @@ data:
     # should be supplied in the format: key = value
 
     [kubernetes_secrets]
-    AIRFLOW__CORE__SQL_ALCHEMY_CONN = {{ template "airflow.fullname" $ }}-env=AIRFLOW__CORE__SQL_ALCHEMY_CONN
     AIRFLOW_HOME = {{ template "airflow.fullname" $ }}-env=AIRFLOW_HOME
     {{- range $setting, $option := .Values.airflow.config }}
     {{ $setting }} = {{ template "airflow.fullname" $ }}-env={{ $setting }}
