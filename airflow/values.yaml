@@ -39,8 +39,10 @@ airflow:
   ## following form: AIRFLOW__<section>__<key>.
   ## See the Airflow documentation: http://airflow.readthedocs.io/en/latest/configuration.html?highlight=__CORE__#setting-configuration-options)
   ## Example:
-  ##   config:
-  ##     AIRFLOW__CORE__EXPOSE_CONFIG: "True"
+  config:
+    AIRFLOW__WEBSERVER__RBAC: "True"
+    AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "True"
   ##     HTTP_PROXY: "http://proxy.mycompany.com:123"
   config:
 
