@@ -2,10 +2,17 @@ airflow:
   # Don't use this fernet key in production!
   fernet_key: "j0PNE8131Vx-ix7BsNDwskFUlnLa00mWU17BRujVcdY="
   image:
-    repository: <YOUR/IMAGE/URL>
-    tag: <TAG>
+    repository: airflow-1.10.9
+    tag: 1
     pull_policy: IfNotPresent
   config:
+    AIRFLOW__WEBSERVER__RBAC: "False"
+    AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    AWS_SDK_LOAD_CONFIG: "true"
+    AWS_PROFILE: "saml"
+    AWS_CONFIG_FILE: "/usr/local/airflow/dags/.aws/config"
+    AWS_SHARED_CREDENTIALS_FILE: "/usr/local/airflow/dags/.aws/credentials"
   logs:
     persistence:
       existingClaim: nfs-airflow-logs
@@ -17,8 +24,8 @@ airflow:
       existingClaim: nfs-airflow-dags
       init_dags: |
         set -x
-        git clone https://github.com/apache/airflow.git
-        cp -r airflow/airflow/example_dags/* /usr/local/airflow/dags/
+        # git clone https://github.com/apache/airflow.git
+        # cp -r airflow/airflow/example_dags/* /usr/local/airflow/dags/
   rbac:
     enabled: false
 
@@ -28,9 +35,9 @@ ingress:
 
 postgresql:
   enabled: true
-  postgresUser: postgres
-  postgresPassword: airflow
-  postgresDatabase: airflow
+  postgresqlUsername: postgres
+  postgresqlPassword: airflow
+  postgresqlDatabase: airflow
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
