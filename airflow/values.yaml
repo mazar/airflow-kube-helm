@@ -44,7 +44,6 @@ airflow:
     AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
     AIRFLOW__CORE__LOAD_EXAMPLES: "True"
   ##     HTTP_PROXY: "http://proxy.mycompany.com:123"
-  config:
 
   logs:
     persistence:
@@ -240,14 +239,14 @@ postgresql:
   # uri:
   ##
   ### PostgreSQL User to create.
-  postgresUser: postgres
+  postgresqlUsername: postgres
   ##
   ## PostgreSQL Password for the new user.
   ## If not set, a random 10 characters password will be used.
-  postgresPassword: airflow
+  postgresqlPassword: airflow
   ##
   ## PostgreSQL Database to create.
-  postgresDatabase: airflow
+  postgresqlDatabase: airflow
   ##
   ## Persistent Volume Storage configuration.
   ## ref: https://kubernetes.io/docs/user-guide/persistent-volumes
